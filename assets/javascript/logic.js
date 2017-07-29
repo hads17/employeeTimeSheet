@@ -26,11 +26,12 @@ $(document).ready(function(){
         var totalBilled;
         console.log('hello');
 
-        $('#table1').append('<tr>' + '<td>'+ name + '</td>' + '<td>'+ role + '</td>' + '<td>'+ startDate + '</td>' + '</tr');
+        $('#table1').append('<tr>' + '<td>'+ name + '</td>' + '<td>'+ role + '</td>' + '<td>'+ startDate + '</td>' + '<td>'+ 'Months Worked' + '</td>' + '<td>'+ monthlyRate + '</td>' + '</tr');
         database.ref().push({
             name: name,
             role: role,
             startDate: startDate,
+            monthlyRate: monthlyRate,
         });
     });
 });
