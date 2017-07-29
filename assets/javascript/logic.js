@@ -9,6 +9,12 @@
   };
   firebase.initializeApp(config);
 
+  var database = firebase.database();
+
+  database.ref().on('value', function(snapshot){
+    console.log(snapshot.val());
+  });
+
 
 $(document).ready(function(){
     $('body').on('click', '#submit', function(){
@@ -20,7 +26,11 @@ $(document).ready(function(){
         var totalBilled;
         console.log('hello');
 
-        $('#table1').append('<tr>' + '<td>'+ name + '</td>' + '</tr');
-
+        $('#table1').append('<tr>' + '<td>'+ name + '</td>' + '<td>'+ role + '</td>' + '<td>'+ startDate + '</td>' + '</tr');
+        database.ref().push({
+            name: name,
+            role: role,
+            startDate: startDate,
+        });
     });
 });
